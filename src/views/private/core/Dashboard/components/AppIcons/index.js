@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { compose } from "recompose";
 import { withStyles } from 'material-ui/styles';
 import Avatar from 'material-ui/Avatar';
 import pink from 'material-ui/colors/pink';
@@ -25,4 +24,4 @@ ImageAvatars.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default compose(withStyles,styles(pink,green))(ImageAvatars);
+export default withStyles(styles(pink,green))(ImageAvatars);
