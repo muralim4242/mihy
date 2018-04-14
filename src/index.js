@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import { Provider } from 'mobx-react';
 import store from './stores';
 import registerServiceWorker from "./registerServiceWorker";
-import "assets/css/material-dashboard-react.css";
+import "./assets/css/material-dashboard-react.css";
 import App from "./containers/App";
 
 
