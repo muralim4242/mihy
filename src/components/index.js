@@ -7,6 +7,7 @@ import ProfileCard from "./Cards/ProfileCard";
 import RegularCard from "./Cards/RegularCard";
 import StatsCard from "./Cards/StatsCard";
 import TasksCard from "./Cards/TasksCard";
+import AppCard from "./Cards/AppCard";
 
 // ##############################
 // // // CustomButtons
@@ -90,6 +91,11 @@ import Danger from "./Typography/Danger";
 import Small from "./Typography/Small";
 import A from "./Typography/A";
 
+// ##############################
+// // // RenderRoutes
+// #############################
+
+import RenderRoutes from "./RenderRoutes";
 
 export {
   // Cards
@@ -98,6 +104,7 @@ export {
   RegularCard,
   StatsCard,
   TasksCard,
+  AppCard,
   // CustomButtons
   Button,
   IconButton,
@@ -133,5 +140,7 @@ export {
   //Div
   Div,
   //Paper
-  WhitePaper
+  WhitePaper,
+  //RenderRoutes
+  RenderRoutes
 };

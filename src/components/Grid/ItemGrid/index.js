@@ -8,7 +8,7 @@ const style = {
 };
 
 function ItemGrid({ ...props }) {
-  const { classes, children, ...rest } = props;
+  const { classes,className,children, ...rest } = props;
   return (
     <Grid item {...rest} className={classes.grid}>
       {children}

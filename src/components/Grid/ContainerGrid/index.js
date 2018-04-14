@@ -1,10 +1,6 @@
 import React from "react";
 import { withStyles, Grid } from "material-ui";
-
-const style = {
-  grid: {
-  }
-};
+import styles from "./css";
 
 function ContainerGrid({ ...props }) {
   const { classes, children, ...rest } = props;
@@ -15,4 +11,4 @@ function ContainerGrid({ ...props }) {
   );
 }
 
-export default withStyles(style)(ContainerGrid);
+export default withStyles(styles)(ContainerGrid);
