@@ -22,11 +22,11 @@ function CustomInput({ ...props }) {
     [" " + classes.labelRootError]: error,
     [" " + classes.labelRootSuccess]: success && !error
   });
-  const inkbarClasses = cx({
-    [classes.inkbarError]: error,
-    [classes.inkbarSuccess]: success && !error,
-    [classes.inkbar]: !success && !error
-  });
+  // const inkbarClasses = cx({
+  //   [classes.inkbarError]: error,
+  //   [classes.inkbarSuccess]: success && !error,
+  //   [classes.inkbar]: !success && !error
+  // });
   const marginTop = cx({
     [classes.marginTop]: labelText === undefined
   });
@@ -49,7 +49,7 @@ function CustomInput({ ...props }) {
           root: marginTop,
           disabled: classes.disabled,
           underline: classes.underline,
-          inkbar: inkbarClasses
+          // inkbar: inkbarClasses
         }}
         id={id}
         {...inputProps}

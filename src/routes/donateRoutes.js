@@ -1,5 +1,5 @@
 import Donate from "views/private/Donate";
-import Blood from "views/private/Donate/Blood";
+import Blood from "containers/private/Donate/Blood";
 import * as routes from "constants/donateRoutes";
 
 const donateRoutes=[

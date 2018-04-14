@@ -25,8 +25,9 @@ const styles = theme => ({
   content: {
     flexGrow: 1,
     // backgroundColor: theme.palette.background.default,
-    padding: theme.spacing.unit * 3,
-    marginTop: "55px"
+    padding: theme.spacing.unit,
+    marginTop: "55px",
+    marginBottom:"40px"
   }
 });
 

@@ -1,11 +1,9 @@
 import React from "react";
-import { Grid, InputLabel } from "material-ui";
+import { Grid } from "material-ui";
 
 import {
   ProfileCard,
-  RegularCard,
   Button,
-  CustomInput,
   ItemGrid
 } from "components";
 

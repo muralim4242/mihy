@@ -2,15 +2,12 @@ import React from "react";
 import { Grid, InputLabel } from "material-ui";
 
 import {
-  ProfileCard,
   RegularCard,
   Button,
   CustomInput,
   ItemGrid
 } from "components";
 
-// import avatar from "assets/img/faces/marc.jpg";
-import avatar from "assets/img/ceo.jpeg";
 
 
 function UserProfile({ ...props }) {
@@ -125,19 +122,6 @@ function UserProfile({ ...props }) {
               </div>
             }
             footer={<Button color="primary">Update Profile</Button>}
-          />
-        </ItemGrid>
-        <ItemGrid xs={12} sm={12} md={4}>
-          <ProfileCard
-            avatar={avatar}
-            subtitle="CEO / CO-FOUNDER"
-            title="Alec Thompson"
-            description="Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is..."
-            footer={
-              <Button color="primary" round>
-                Follow
-              </Button>
-            }
           />
         </ItemGrid>
       </Grid>

@@ -13,6 +13,7 @@ const App = () => (
               if (!key) {
                 return <Route path={prop.path} component={prop.component} key={key} />
               }
+              return null;
             })
           }
         </Switch>
@@ -22,6 +23,7 @@ const App = () => (
               if (key) {
                 return <Route path={prop.path} component={prop.component} key={key} />
               }
+              return null;
             })
           }
         </Switch>

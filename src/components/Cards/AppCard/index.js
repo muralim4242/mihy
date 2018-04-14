@@ -4,10 +4,8 @@ import { withStyles } from 'material-ui/styles';
 import {compose} from "recompose";
 import {withRouter} from "react-router-dom";
 import Card, { CardContent, CardMedia } from 'material-ui/Card';
-import IconButton from 'material-ui/IconButton';
 import Typography from 'material-ui/Typography';
 import styles from "./css";
-import img from "assets/img/blooming-twig-near-plate_23-2147766582 (1).jpg";
 
 function AppCard(props) {
   const { classes,title,secondaryText,route,image,history} = props;
@@ -25,11 +23,11 @@ function AppCard(props) {
             </Typography>
           </CardContent>
         </div>
-        <CardMedia
+        {image && <CardMedia
           className={classes.cover}
           image={image}
           title={title}
-        />
+        />}
       </Card>
     </div>
   );

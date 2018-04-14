@@ -9,9 +9,9 @@ const Apps = ({ classes,apps }) => {
   return (
     <Div className={classes.root}>
       <ContainerGrid spacing={8}>
-        {apps.map(app => (
-          <ItemGrid xs={12} md={6} className={classes.itemGrid}>
-            <AppCard {...app} />
+        {apps.map((app,key) => (
+          <ItemGrid xs={12} md={6} className={classes.itemGrid} key={key}>
+            <AppCard {...app}/>
           </ItemGrid>
         ))}
       </ContainerGrid>

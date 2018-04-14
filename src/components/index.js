@@ -17,10 +17,11 @@ import Button from "./CustomButtons/Button";
 import IconButton from "./CustomButtons/IconButton";
 
 // ##############################
-// // // CustomInput
+// // // CustomInputs
 // #############################
 
-import CustomInput from "./CustomInput";
+import CustomInput from "./CustomInputs";
+import SingleValuedDropdown from "./CustomInputs/SingleValuedDropdown";
 
 // ##############################
 // // // Footer
@@ -108,8 +109,9 @@ export {
   // CustomButtons
   Button,
   IconButton,
-  // CustomInput
+  // CustomInputs
   CustomInput,
+  SingleValuedDropdown,
   // Footer
   Footer,
   // Grid

@@ -1,6 +1,6 @@
 import React from "react";
 import { withStyles,Paper } from "material-ui";
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 
 
 function WhitePaper({ ...props }) {
