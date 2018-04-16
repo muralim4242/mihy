@@ -199,11 +199,38 @@ footer ul li a:hover {
     text-decoration: none;
 }
 
+.map-box {
+  flex: 1 1 auto;
+  position: relative;
+  margin-left: -7px;
+  z-index: -1;
+  -webkit-transform: translate3d(0, 0, 0);
+}
+
+/* @media screen and (max-width: 767px) {
+  body {
+    overflow-y: hidden;
+  }
+  .map-box {
+    width: 100%;
+    height: 72%;
+    position: fixed;
+    top: 65px;
+  }
+} */
+
 @media (max-width: 991px) {
     body,
     html {
         position: relative;
         overflow-x: hidden;
+    }
+
+    .map-box {
+      width: 100%;
+      height: 83%;
+      position: fixed;
+      top: 55px;
     }
 
     #bodyClick {

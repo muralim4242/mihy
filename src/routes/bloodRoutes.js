@@ -1,5 +1,6 @@
 import Blood from "views/private/Donate/Blood";
 import Profile from "views/private/Donate/Blood/Profile";
+import RequestBlood from "views/private/Donate/Blood/RequestBlood";
 import * as routes from "constants/bloodRoutes";
 
 const donateRoutes=[
@@ -17,7 +18,7 @@ const donateRoutes=[
   },
   {
     path:routes.CREATEREQUEST,
-    component:Profile
+    component:RequestBlood
   },
   {
     path:routes.DONATEREQUEST,

@@ -98,6 +98,12 @@ import A from "./Typography/A";
 
 import RenderRoutes from "./RenderRoutes";
 
+// ##############################
+// // // Map
+// #############################
+
+import MyMapComponent from "./Map";
+
 export {
   // Cards
   ChartCard,
@@ -144,5 +150,7 @@ export {
   //Paper
   WhitePaper,
   //RenderRoutes
-  RenderRoutes
+  RenderRoutes,
+  //Map
+  MyMapComponent
 };
