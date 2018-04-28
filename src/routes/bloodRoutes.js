@@ -1,6 +1,6 @@
 import Blood from "views/private/Donate/Blood";
 import Profile from "views/private/Donate/Blood/Profile";
-import RequestBlood from "views/private/Donate/Blood/RequestBlood";
+import RequestBlood from "containers/private/Donate/Blood/RequestBlood";
 import * as routes from "constants/bloodRoutes";
 
 const donateRoutes=[

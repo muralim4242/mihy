@@ -15,6 +15,7 @@ import AppCard from "./Cards/AppCard";
 
 import Button from "./CustomButtons/Button";
 import IconButton from "./CustomButtons/IconButton";
+import RoundButton from "./CustomButtons/RoundButton";
 
 // ##############################
 // // // CustomInputs
@@ -35,6 +36,7 @@ import Footer from "./Footer";
 
 import ContainerGrid from "./Grid/ContainerGrid";
 import ItemGrid from "./Grid/ItemGrid";
+import GridList from "./Grid/GridList";
 
 // ##############################
 // // // Div
@@ -44,7 +46,7 @@ import Div from "./Div";
 // ##############################
 // // // WhitePaper
 // #############################
-import WhitePaper from "./WhitePaper";
+import WhitePaper from "./Paper";
 
 // ##############################
 // // // Header
@@ -115,6 +117,7 @@ export {
   // CustomButtons
   Button,
   IconButton,
+  RoundButton,
   // CustomInputs
   CustomInput,
   SingleValuedDropdown,
@@ -123,6 +126,7 @@ export {
   // Grid
   ContainerGrid,
   ItemGrid,
+  GridList,
   // Header
   Header,
   // Sidebar

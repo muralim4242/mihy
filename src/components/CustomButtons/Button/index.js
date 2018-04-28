@@ -13,6 +13,7 @@ function RegularButton({ ...props }) {
     children,
     fullWidth,
     disabled,
+    parentOverrideClass,
     ...rest
   } = props;
   const btnClasses = cx({
@@ -22,7 +23,7 @@ function RegularButton({ ...props }) {
     [classes.disabled]: disabled
   });
   return (
-    <Button {...rest} className={classes.button + " " + btnClasses}>
+    <Button className={classes.button + " " + btnClasses + " " + parentOverrideClass} {...rest} >
       {children}
     </Button>
   );

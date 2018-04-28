@@ -1,14 +1,19 @@
 import React from "react";
-import { MyMapComponent,Div } from "components";
+import { MyMapComponent,Div,SingleValuedDropdown,WhitePaper,RoundButton} from "components";
+import BloodList from "./components/BloodList";
+import { withStyles } from 'material-ui/styles';
+// import Button from 'material-ui/Button';
+import styles from "./css"
 
-const RequestBlood = () => {
+const RequestBlood = ({classes,bloodList,currLoc,setLocation,getMyLocation}) => {
   return (
     <Div className="map-box">
-      <MyMapComponent isMarkerShown={true} markers={[
-        { lat: -34.397, lng: 150.644 },{ lat: -34.397, lng: 151.644 }
-      ]} />
+      <MyMapComponent isMarkerShown={true} currLoc={currLoc} setLocation={setLocation} getMyLocation={getMyLocation}/>
+      <BloodList bloodList={bloodList}/>
+      <RoundButton ariaLabel="add" parentOverrideClass={classes.buttonSend} icon="send"/>
+      <RoundButton ariaLabel="cancel" parentOverrideClass={classes.buttonCancel} icon="close"/>
     </Div>
   );
 };
 
-export default RequestBlood;
+export default withStyles(styles)(RequestBlood);

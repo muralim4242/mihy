@@ -126,7 +126,9 @@ const buttonStyle = {
     }
   },
   round: {
-    borderRadius: "30px"
+    borderRadius: "50%",
+    width: "56px",
+    height: "56px"
   },
   disabled: {
     opacity: "0.65",
