@@ -53,7 +53,7 @@ const addressBoxStyle = {
 };
 
 let bounds;
-let gMap;
+// let map;
 
 const MyMapComponent = compose(
   withProps({
@@ -76,12 +76,12 @@ const MyMapComponent = compose(
         center: { lat: 21.7679, lng: 78.8718 },
         markers: [],
         onMapMounted: ref => {
-          refs.gMap = ref;
+          refs.map = ref;
         },
         onBoundsChanged: () => {
           this.setState({
-            bounds: refs.gMap.getBounds(),
-            center: refs.gMap.getCenter(),
+            bounds: refs.map.getBounds(),
+            center: refs.map.getCenter(),
           })
         },
         onSearchBoxMounted: ref => {
@@ -107,7 +107,7 @@ const MyMapComponent = compose(
             center: nextCenter,
             markers: nextMarkers,
           });
-          // refs.gMap.fitBounds(bounds);
+          // refs.map.fitBounds(bounds);
         },
       })
     },
@@ -117,7 +117,7 @@ const MyMapComponent = compose(
     },
 
     componentWillReceiveProps(nextProps) {
-      if (isEqual(this.props, nextProps)) {
+      if (!isEqual(this.props, nextProps)) {
         this.reRender(nextProps);
       }
     },
@@ -129,7 +129,7 @@ const MyMapComponent = compose(
         let waypts = [];
         const fitBound = () => {
           // Create bounds from markers
-          if (gMap) {
+          if (map) {
             bounds.extend(
               new window.google.maps.LatLng(
                 props.destination.lat - 0.01,
@@ -157,7 +157,7 @@ const MyMapComponent = compose(
               bounds.extend(extendPoint2);
             }
 
-            gMap.fitBounds(bounds);
+            map.fitBounds(bounds);
           }
           // Adjusting zoom here doesn't work :/
         };
@@ -195,7 +195,7 @@ const MyMapComponent = compose(
 )(props => (
   <GoogleMap
     ref={props.onMapMounted}
-    defaultZoom={5}
+    defaultZoom={15}
     defaultCenter={props.center}
     center={props.currLoc ? props.currLoc : props.center}
     onBoundsChanged={props.onBoundsChanged}
@@ -227,10 +227,11 @@ const MyMapComponent = compose(
     </div>
 
     <RoundButton ariaLabel="My Location" parentOverrideClass="my-location" icon="my_location" handleClick={props.getMyLoc}/>
+    {props.currLoc && <Marker position={props.currLoc}/>}
 
-    {props.markers.map((marker, index) =>
+    {/*props.markers.map((marker, index) =>
       <Marker key={index} position={marker.position} />
-    )}
+    )*/}
 
     <SearchBox
       ref={props.onSearchBoxMounted}

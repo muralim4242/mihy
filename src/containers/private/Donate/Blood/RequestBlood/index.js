@@ -34,15 +34,13 @@ class RequestBloodContainer extends React.Component {
         name:"oNegative"
     }]
   }
+
+  componentDidMount=()=>{
+    this.getMyLocation();
+  }
   //For Compass Click -- set map to current location
   getMyLocation = () => {
-    const { currLoc } = this.state;
-    if (!isEmpty(currLoc)) {
-      const { lat, lng } = currLoc;
-      this.setState({
-        currLoc: { lat: parseFloat(lat), lng: parseFloat(lng) },
-      });
-    } else if (navigator.geolocation) {
+    if (navigator.geolocation) {
       // can be resused
       navigator.geolocation.getCurrentPosition(
         (position) => {
@@ -88,11 +86,11 @@ class RequestBloodContainer extends React.Component {
 
   render()
   {
-    let {bloodList}=this.state;
+    let {bloodList,currLoc}=this.state;
     return(
       <RequestBlood
         bloodList={bloodList}
-        currLoc={this.state.currLoc}
+        currLoc={currLoc}
         setLocation={this.setPickedLocation}
         getMyLoc={this.getMyLocation}
       />

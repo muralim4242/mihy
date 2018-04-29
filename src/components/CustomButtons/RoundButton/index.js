@@ -6,9 +6,8 @@ import styles from "./css";
 
 function RoundButton(props) {
   const { classes,color,ariaLabel,parentOverrideClass,icon,handleClick,hasIcon,children,...rest} = props;
-  debugger;
   return (
-        <Button variant="fab" color={`${color?color:"default"}`} aria-label={`${ariaLabel?ariaLabel:""}`} className={`${classes.button} ${parentOverrideClass}`} {...rest}>
+        <Button variant="fab" color={`${color?color:"default"}`} aria-label={`${ariaLabel?ariaLabel:""}`} className={`${classes.button} ${parentOverrideClass}`} mini={true} {...rest}>
           {(hasIcon===undefined || hasIcon===true)?<i
             className="material-icons"
             onClick={handleClick}

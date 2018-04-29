@@ -10,13 +10,13 @@ function BloodList(props) {
   const { classes,bloodList } = props;
   return (
     <div className={classes.root}>
-      <GridList className={classes.gridList} cols={5}>
+      <GridList className={classes.gridList} cols={6} cellHeight={56}>
           {
             bloodList.map((blood,key)=>{
               return (
                 <GridListTile key={key}>
                   <RoundButton ariaLabel={blood.displayName} hasIcon={false} parentOverrideClass={classes[blood.name]}>
-                      {blood.displayName}
+                      <span className={classes.text}>{blood.displayName}</span>
                   </RoundButton>
                 </GridListTile>
               )

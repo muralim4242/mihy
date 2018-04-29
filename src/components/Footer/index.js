@@ -12,29 +12,33 @@ const footerStyle = {
   root: {
     width: "100%",
     position:"fixed",
-    bottom: 0
+    bottom: 0,
+    // background: "linear-gradient(60deg, #00BCD4, #009688)"
+  },
+  icon:{
+    color:"white"
   }
 };
 
 const options = [
   {
     label: "Home",
-    icon: <Home />,
+    icon: <Home style={footerStyle.icon}/>,
     route: "/"
   },
   {
     label: "Profile",
-    icon: <Face />,
+    icon: <Face style={footerStyle.icon}/>,
     route: "/user"
   },
   {
     label: "Contact Us",
-    icon: <Call />,
+    icon: <Call style={footerStyle.icon}/>,
     route: ""
   },
   {
     label: "Logout",
-    icon: <ExitToApp />,
+    icon: <ExitToApp style={footerStyle.icon}/>,
     route: ""
   }
 ];

@@ -16,36 +16,39 @@ const styles = theme => {
       transform: "translateZ(0)"
     },
     aPositve:{
-      background:"#26a69a",
+      background:"#b71c1c",
       color:"white"
     },
     bPositive:{
-      background:"#66bb6a",
+      background:"#b71c1c",
       color:"white"
     },
     abPositive:{
-      background:"linear-gradient(to right,#26a69a 50%, #66bb6a 50%)",
+      background:"#b71c1c",
       color:"white"
     },
     oPositive:{
-      background:"#9ccc65",
+      background:"#b71c1c",
       color:"white"
     },
     aNegative:{
-      background:"#cddc39",
+      background:"#b71c1c",
       color:"white"
     },
     bNegative:{
-      background:"#8bc34a",
+      background:"#b71c1c",
       color:"white"
     },
     abNegative:{
-      background:"linear-gradient(to right,#cddc39 50%, #8bc34a 50%)",
+      background:"#b71c1c",
       color:"white"
     },
     oNegative:{
-      background:"#90a4ae",
+      background:"#b71c1c",
       color:"white"
+    },
+    text:{
+      fontSize:"20px"
     }
   };
 };
