@@ -1,6 +1,6 @@
 import React from "react";
 import RequestBlood from "views/private/Donate/Blood/RequestBlood"
-import isEmpty from "lodash/isEmpty";
+// import isEmpty from "lodash/isEmpty";
 
 var add = {};
 
@@ -8,31 +8,7 @@ class RequestBloodContainer extends React.Component {
   state={
     currLoc: { lat: 21.7679, lng: 78.8718 },
     pickedLoc: {},
-    bloodList:[{
-      displayName:"A+",
-      name:"aPositve"
-    },{
-      displayName:"B+",
-        name:"bPositive"
-    },{
-      displayName:"AB+",
-        name:"abPositive"
-    },{
-      displayName:"O+",
-        name:"oPositive"
-    },{
-      displayName:"A-",
-        name:"aNegative"
-    },{
-      displayName:"B-",
-        name:"bNegative"
-    },{
-      displayName:"AB-",
-        name:"abNegative"
-    },{
-      displayName:"O-",
-        name:"oNegative"
-    }]
+    bloodList:[]
   }
 
   componentDidMount=()=>{
@@ -55,10 +31,6 @@ class RequestBloodContainer extends React.Component {
     }
   };
 
-  setPickedLocation = (lati, long) => {
-    add.lat = lati;
-    add.lng = long;
-  };
 
   onClickPick = () => {
     this.convertToAddress(add);
@@ -80,9 +52,6 @@ class RequestBloodContainer extends React.Component {
     });
   };
 
-  onCLickMapBackBtn = () => {
-    this.props.history.goBack();
-  };
 
   render()
   {
@@ -91,7 +60,6 @@ class RequestBloodContainer extends React.Component {
       <RequestBlood
         bloodList={bloodList}
         currLoc={currLoc}
-        setLocation={this.setPickedLocation}
         getMyLoc={this.getMyLocation}
       />
     )

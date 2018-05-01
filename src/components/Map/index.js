@@ -10,28 +10,28 @@ import {
 } from "react-google-maps";
 import isEqual from "lodash/isEqual";
 import { MarkerWithLabel } from "react-google-maps/lib/components/addons/MarkerWithLabel";
-import SearchBox from "react-google-maps/lib/components/places/SearchBox";
+// import SearchBox from "react-google-maps/lib/components/places/SearchBox";
 import {RoundButton} from 'components';
 import get from 'lodash/get';
 import "./index.css";
 
 const API_KEY = "AIzaSyB0O4tUXPQgjMhTAbct2UHHfw4IpEq9SzU";
 
-const searchBoxStyles ={
-  zIndex: 0,
-  position: "absolute",
-  left: "20px",
-  top: "0px",
-}
-
-const addressBoxCloseIconSymbol = {
-  position: "relative",
-  top: "8px",
-  color: "black",
-  right: "8px",
-  width: "8px",
-  height: "8px"
-};
+// const searchBoxStyles ={
+//   zIndex: 0,
+//   position: "absolute",
+//   left: "20px",
+//   top: "0px",
+// }
+//
+// const addressBoxCloseIconSymbol = {
+//   position: "relative",
+//   top: "8px",
+//   color: "black",
+//   right: "8px",
+//   width: "8px",
+//   height: "8px"
+// };
 
 const addressBoxStyle = {
   // opacity: 0.6,
@@ -53,6 +53,7 @@ const addressBoxStyle = {
 };
 
 let bounds;
+let refs = {}
 // let map;
 
 const MyMapComponent = compose(
@@ -69,7 +70,7 @@ const MyMapComponent = compose(
       // global.google = window.google;
       // var SlidingMarker = require("marker-animate-unobtrusive");
       // SlidingMarker.initializeGlobally();
-      const refs = {}
+
 
       this.setState({
         bounds: null,
@@ -129,7 +130,7 @@ const MyMapComponent = compose(
         let waypts = [];
         const fitBound = () => {
           // Create bounds from markers
-          if (map) {
+          if (refs.map) {
             bounds.extend(
               new window.google.maps.LatLng(
                 props.destination.lat - 0.01,
@@ -157,7 +158,7 @@ const MyMapComponent = compose(
               bounds.extend(extendPoint2);
             }
 
-            map.fitBounds(bounds);
+            refs.map.fitBounds(bounds);
           }
           // Adjusting zoom here doesn't work :/
         };
@@ -196,7 +197,6 @@ const MyMapComponent = compose(
   <GoogleMap
     ref={props.onMapMounted}
     defaultZoom={15}
-    defaultCenter={props.center}
     center={props.currLoc ? props.currLoc : props.center}
     onBoundsChanged={props.onBoundsChanged}
     options={{
@@ -212,7 +212,7 @@ const MyMapComponent = compose(
           }
         }}
   >
-    <div className="search-icon">
+    {/*<div className="search-icon">
       <i
         id="searchIcon"
         style={{
@@ -224,16 +224,16 @@ const MyMapComponent = compose(
       >
         search
       </i>
-    </div>
+    </div>*/}
 
-    <RoundButton ariaLabel="My Location" parentOverrideClass="my-location" icon="my_location" handleClick={props.getMyLoc}/>
-    {props.currLoc && <Marker position={props.currLoc}/>}
+    <RoundButton ariaLabel="My Location" parentOverrideClass="my-location" icon="my_location" onClick={props.getMyLoc}/>
+    {props.currLoc && <Marker position={props.currLoc} draggable={true} onDragEnd={(e)=>{props.onMarkerChanged(e.latLng.lat(),e.latLng.lng())}} icon={props.currentLocationIcon}/>}
 
     {/*props.markers.map((marker, index) =>
       <Marker key={index} position={marker.position} />
     )*/}
 
-    <SearchBox
+   {/*<SearchBox
       ref={props.onSearchBoxMounted}
       bounds={props.bounds}
       controlPosition={window.google.maps.ControlPosition.TOP_LEFT}
@@ -245,7 +245,7 @@ const MyMapComponent = compose(
         placeholder="Search address"
         style={searchBoxStyles}
       />
-    </SearchBox>
+    </SearchBox>*/}
 
     {props.isDirectionShown &&
       props.directions && (
@@ -285,7 +285,7 @@ const MyMapComponent = compose(
               labelAnchor={new window.google.maps.Point(0, 0)}
               labelStyle={addressBoxStyle}
               onClick={() => props.onInfoBoxToggle(entityKey)}
-              icon={entity.icon}
+              icon={props.entityIcon}
             >
               <InfoWindow onCloseClick={props.onToggleOpen}>{entity.position && entity.position.lat} </InfoWindow>
             </MarkerWithLabel>
@@ -295,7 +295,7 @@ const MyMapComponent = compose(
             <Marker
               position={{ ...entity.position }}
               key={entityKey}
-              icon={entity.icon}
+              icon={props.entityIcon}
             />
           );
         }

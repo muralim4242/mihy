@@ -13,7 +13,7 @@ class UserStore {
 }
 
 decorate(UserStore, {
-    authUser: observable,
+    users: observable,
     setUsers: action
 })
 

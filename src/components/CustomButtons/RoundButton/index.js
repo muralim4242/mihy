@@ -5,12 +5,11 @@ import Button from 'material-ui/Button';
 import styles from "./css";
 
 function RoundButton(props) {
-  const { classes,color,ariaLabel,parentOverrideClass,icon,handleClick,hasIcon,children,...rest} = props;
+  const { classes,color,ariaLabel,parentOverrideClass,icon,onClick,hasIcon,children,id,...rest} = props;
   return (
-        <Button variant="fab" color={`${color?color:"default"}`} aria-label={`${ariaLabel?ariaLabel:""}`} className={`${classes.button} ${parentOverrideClass}`} mini={true} {...rest}>
+        <Button variant="fab" color={`${color?color:"default"}`} aria-label={`${ariaLabel?ariaLabel:""}`} className={`${classes.button} ${parentOverrideClass}`} mini={true} onClick={(e)=>onClick(e)} id={id} {...rest}>
           {(hasIcon===undefined || hasIcon===true)?<i
             className="material-icons"
-            onClick={handleClick}
           >
             {icon}
           </i>:children}
@@ -23,7 +22,8 @@ RoundButton.propTypes = {
   color:PropTypes.string,
   ariaLabel:PropTypes.string,
   parentOverrideClass:PropTypes.string,
-  icon:PropTypes.string
+  icon:PropTypes.string,
+  onClick:PropTypes.func
 };
 
 export default withStyles(styles)(RoundButton);

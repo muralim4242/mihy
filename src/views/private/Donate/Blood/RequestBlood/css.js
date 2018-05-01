@@ -13,13 +13,13 @@ const styles = theme => {
       height: "56px"
     },
     buttonSend: {
-      position: "absolute",
-      bottom: "151px",
+      position: "fixed",
+      bottom: "229px",
       right: "0px"
     },
     buttonCancel: {
-      position: "absolute",
-      bottom: "87px",
+      position: "fixed",
+      bottom: "181px",
       right: "0px"
     }
   };

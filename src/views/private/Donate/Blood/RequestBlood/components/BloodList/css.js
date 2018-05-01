@@ -1,5 +1,3 @@
-import deepOrange from "material-ui/colors/deepOrange";
-import deepPurple from "material-ui/colors/deepPurple";
 
 const styles = theme => {
   return {
@@ -15,7 +13,7 @@ const styles = theme => {
       // Promote the list into his own layer on Chrome. This cost memory but helps keeping high FPS.
       transform: "translateZ(0)"
     },
-    aPositve:{
+    aPositive:{
       background:"#b71c1c",
       color:"white"
     },
