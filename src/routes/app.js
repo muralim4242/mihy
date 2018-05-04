@@ -2,7 +2,8 @@
 import DashboardPage from "views/private/core/Dashboard";
 import UserProfile from "views/private/core/UserProfile";
 import ContactUs from "views/private/core/ContactUs";
-import Donate from "containers/private/Donate";
+// import Donate from "containers/private/Donate";
+import Blood from "containers/private/Donate/Blood";
 import * as routes from "constants/routes";
 // import {Route,Switch} from "react-router-dom";
 import {
@@ -33,10 +34,10 @@ const appRoutes = [
     component: ContactUs
   },
   {
-    path: routes.DONATE,
-    sidebarName: "Donate",
-    navbarName: "Donate",
-    component: Donate
+    path: routes.BLOOD,
+    sidebarName: "Blood",
+    navbarName: "Blood",
+    component: Blood
   },
   // { redirect: true, path: routes.LANDING, to: routes.DASHBOARD, navbarName: "Redirect" }
 ];

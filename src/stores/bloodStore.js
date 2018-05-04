@@ -19,7 +19,7 @@ class BloodStore {
     strokeColor: '',
     strokeWeight: 0
   }
-  
+
   bloodGrps = [
     {
       displayName: "A+",
@@ -195,18 +195,59 @@ class BloodStore {
     }
   ];
   filteredDonorLocations = this.donorLocations;
+  openSendModal=false;
+  waitingTime=5;
+  timer=this.waitingTime;
+  timerObject;
+  selectedBloodGroupForSearch="";
 
   // constructor(rootStore) {
   //   this.rootStore = rootStore;
   // }
   handleBloodGrpClick = e => {
+    this.selectedBloodGroupForSearch=e.target.textContent;
     let filteredbloodGrp = filter(this.bloodGrps, {
-      displayName: e.target.textContent
+      displayName: this.selectedBloodGroupForSearch
     });
     this.filteredDonorLocations = filter(this.donorLocations, {
       bloodGrpCode: filteredbloodGrp[0].code
     });
   };
+
+  tick=()=>{
+    if (this.timer>0) {
+      this.timer--;
+    } else {
+      this.timer=this.waitingTime;
+      this.stopTimer();
+    }
+  }
+
+  startTimer=()=>{
+    this.timerObject = setInterval(() => this.tick(),1000);
+  }
+
+  stopTimer=()=>{
+    clearInterval(this.timerObject);
+  }
+
+  sendRequest=()=>{
+    //send request and call start timer
+    this.startTimer();
+  }
+
+  cancelRequest=()=>{
+
+  }
+
+  toggleSendModal=(status)=>{
+    if (status==="open") {
+      this.sendRequest();
+    } else {
+      this.stopTimer();
+    }
+    this.openSendModal=!this.openSendModal;
+  }
 
   handleRequesterLocationChanged = (lat, lng) => {
     console.log(lat);
@@ -220,8 +261,16 @@ decorate(BloodStore, {
   isEntityTypeShown: observable,
   donorLocations: observable,
   filteredDonorLocations: observable,
+  openSendModal:observable,
+  selectedBloodGroupForSearch:observable,
+  timer:observable,
   handleBloodGrpClick: action,
-  handleRequesterLocationChanged: action
+  handleRequesterLocationChanged: action,
+  toggleSendModal:action,
+  startTimer:action,
+  stopTimer:action,
+  tick:action,
+  sendRequest:action
 });
 
 export default BloodStore;

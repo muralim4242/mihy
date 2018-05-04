@@ -1,2 +1,2 @@
-export const DASHBOARD="/dashboard";
-export const BLOOD="/blood";
+// export const DASHBOARD="/dashboard";
+export const BLOOD="/donate/blood";

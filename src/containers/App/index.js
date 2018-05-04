@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import indexRoutes from "routes/index";
+import indexRoutes from "routes";
 import withAuthentication from "hoc/withAuthentication";
 
 const App = () => (

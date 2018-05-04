@@ -8,19 +8,24 @@ import Typography from 'material-ui/Typography';
 import styles from "./css";
 
 function AppCard(props) {
-  const { classes,title,secondaryText,route,image,history} = props;
+  const { classes,title,secondaryText,route,image,history,children,hasCardClick} = props;
   const changeRoute=(route)=>{
     history.push(route);
   }
+  let events={};
+  if (hasCardClick===undefined || hasCardClick) {
+    events={onClick:()=>{changeRoute(route)}}
+  }
   return (
     <div>
-      <Card onClick={()=>{changeRoute(route)}} className={classes.card}>
+      <Card {...events} className={classes.card}>
         <div className={classes.details}>
           <CardContent className={classes.content}>
             <Typography variant="headline">{title}</Typography>
             <Typography variant="subheading" color="textSecondary">
               {secondaryText}
             </Typography>
+            {children && children}
           </CardContent>
         </div>
         {image && <CardMedia

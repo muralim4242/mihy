@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
 import Apps from "views/common/Apps";
+import donateRoutes from "routes/donateRoutes";
 
 const apps = [
   {
@@ -9,7 +10,9 @@ const apps = [
     title: "Donate",
     secondaryText: "Save life",
     image: `https://firebasestorage.googleapis.com/v0/b/mihy-all.appspot.com/o/blooming-twig-near-plate_23-2147766582%20(1).jpg?alt=media&token=e8213387-b025-4ef1-86e0-12b06eb4c771`,
-    route:"/donate"
+    route:"/donate",
+    childRoutes:donateRoutes,
+    hasCardClick:false
   },
   // {
   //   key: 2,

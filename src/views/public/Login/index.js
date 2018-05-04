@@ -11,7 +11,7 @@ import {
   githubAuthProviderId
 } from "firebase-util";
 
-import { RegularCard, ItemGrid } from "components";
+import { ItemGrid } from "components";
 
 // console.log(auth);
 // Configure FirebaseUI.

@@ -1,21 +1,27 @@
-import Donate from "views/private/Donate";
+// import Donate from "views/private/Donate";
 import Blood from "containers/private/Donate/Blood";
 import * as routes from "constants/donateRoutes";
 
 const donateRoutes=[
-  {
-    path:routes.DASHBOARD,
-    component:Donate
-  },
+  // {
+  //   path:routes.DASHBOARD,
+  //   component:Donate
+  // },
   {
     path:routes.BLOOD,
-    component:Blood
+    component:Blood,
+    displayName:"Blood",
+    code:"B",
+    style:{
+      background:"#B71C1C",
+      color:"white"
+    }
   },
-  {
-    isRedirect:true,
-    path:"/donate",
-    to:routes.DASHBOARD
-  }
+  // {
+  //   isRedirect:true,
+  //   path:"/donate",
+  //   to:routes.DASHBOARD
+  // }
 ];
 
 export default donateRoutes;

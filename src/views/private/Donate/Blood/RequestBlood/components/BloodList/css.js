@@ -47,6 +47,10 @@ const styles = theme => {
     },
     text:{
       fontSize:"20px"
+    },
+    selectedBloodGroupForSearch:{
+      background:"white !important",
+      color:"rgb(72, 72, 72) !important"
     }
   };
 };

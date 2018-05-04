@@ -6,7 +6,7 @@ import {RoundButton} from "components";
 import styles from "./css"
 
 function BloodList(props) {
-  const { classes,bloodList,onBloodGrpClick} = props;
+  const { classes,bloodList,onBloodGrpClick,selectedBloodGroupForSearch} = props;
   return (
     <div className={classes.root}>
       <GridList className={classes.gridList} cols={6} cellHeight={56}>
@@ -14,7 +14,7 @@ function BloodList(props) {
             bloodList.map((blood,key)=>{
               return (
                 <GridListTile key={key}>
-                  <RoundButton ariaLabel={blood.displayName} hasIcon={false} parentOverrideClass={classes[blood.code]} onClick={onBloodGrpClick} id={blood.code}>
+                  <RoundButton ariaLabel={blood.displayName} hasIcon={false} parentOverrideClass={`${classes[blood.code]} ${selectedBloodGroupForSearch}===${blood.displayName}?${classes.selectedBloodGroupForSearch}:""`} onClick={onBloodGrpClick} id={blood.code}>
                       <span className={classes.text}>{blood.displayName}</span>
                   </RoundButton>
                 </GridListTile>
