@@ -1,15 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Switch, Route,Redirect } from "react-router-dom";
 // creates a beautiful scrollbar
 import PerfectScrollbar from "perfect-scrollbar";
 import { compose } from "recompose";
 import "perfect-scrollbar/css/perfect-scrollbar.css";
 import { withStyles } from "material-ui";
-import { Header, Footer } from "components";
+import { Header, Footer,RenderRoutes } from "components";
 import appRoutes from "routes/app";
 import { auth } from "firebase-util";
-import { LOGIN } from "constants/routes";
+import { LOGIN } from "constants/routes/routes";
 import { withAuthorization } from "hoc";
 
 const styles = theme => ({
@@ -30,19 +29,6 @@ const styles = theme => ({
     marginBottom:"40px"
   }
 });
-
-const switchRoutes = (url)=>
-(
-    <Switch>
-        {appRoutes.map((prop, key) => {
-          if (prop.redirect) {
-            return <Redirect from={prop.path} to={prop.to} key={key} />;
-          } else {
-            return <Route path={prop.path} component={prop.component} key={key} />;
-          }
-        })}
-    </Switch>
-);
 
 class Private extends React.Component {
   state = {
@@ -88,7 +74,7 @@ class Private extends React.Component {
   };
 
   render() {
-    const { classes,match } = this.props;
+    const { classes,history} = this.props;
     const { handleDrawerToggle, handleNavivationChange } = this;
     const { mobileOpen } = this.state;
     return (
@@ -97,8 +83,9 @@ class Private extends React.Component {
           onHandleDrawerToggle={handleDrawerToggle}
           mobileOpen={mobileOpen}
           onMenuItemClick={handleNavivationChange}
+          history={history}
         />
-          <main className={classes.content}>{switchRoutes(match.url)}</main>
+          <main className={classes.content}><RenderRoutes parentUrl="" routes={appRoutes}/></main>
         <Footer onBottomNaviationChange={handleNavivationChange}/>
       </div>
     );

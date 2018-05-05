@@ -11,46 +11,12 @@ import Hidden from 'material-ui/Hidden';
 import Divider from 'material-ui/Divider';
 import MenuIcon from 'material-ui-icons/Menu';
 import { MenuListItems } from './tileData';
-
-const drawerWidth = 240;
-
-const styles = theme => ({
-  appBar: {
-    background:"linear-gradient(60deg, #00BCD4, #009688)",
-    position: 'fixed',
-    marginLeft: drawerWidth,
-    [theme.breakpoints.up('md')]: {
-      width: `calc(100% - ${drawerWidth}px)`,
-    },
-  },
-  toolbar: theme.mixins.toolbar,
-  navIconHide: {
-    [theme.breakpoints.up('md')]: {
-      display: 'none',
-    },
-  },
-  drawerPaper: {
-    width: drawerWidth,
-    [theme.breakpoints.up('md')]: {
-      position: 'relative',
-    },
-  },
-  avatar: {
-    // margin: 10,
-  },
-  bigAvatar: {
-    width: 60,
-    height: 60,
-  },
-  center:{
-    textAlign:"center"
-  }
-});
+import styles from "./css";
 
 class Header extends React.Component {
   render() {
-    const { classes, theme, onHandleDrawerToggle,mobileOpen,onMenuItemClick } = this.props;
-
+    const { classes, theme, onHandleDrawerToggle,mobileOpen,onMenuItemClick,history } = this.props;
+    console.log(history);
     const drawer = (
       <div>
         <div className={classes.toolbar} />
@@ -58,6 +24,14 @@ class Header extends React.Component {
         <List><MenuListItems handleMenuItemClick={onMenuItemClick}/></List>
       </div>
     );
+
+    const toCapitilize=(string)=>{
+      return string.replace(/\b\w/g, l => l.toUpperCase())
+    }
+
+    let pathName=history.location.pathname;
+    let pathNameWithSplit=pathName.split("/");
+    let appHeader=pathNameWithSplit[1]==="dashboard"?"MIHY":(pathNameWithSplit[pathNameWithSplit.length-1].search("-")>-1?`${toCapitilize(pathNameWithSplit[pathNameWithSplit.length-1].split("-")[0])} ${toCapitilize(pathNameWithSplit[pathNameWithSplit.length-1].split("-")[1])}`:toCapitilize(pathNameWithSplit[pathNameWithSplit.length-1]));
 
     return (
       <div>
@@ -72,8 +46,15 @@ class Header extends React.Component {
               <MenuIcon />
             </IconButton>
             <Typography variant="title" color="inherit" noWrap>
-              MIHY
+              {appHeader}
             </Typography>
+            {appHeader!=="MIHY" && <IconButton
+              color="inherit"
+              aria-label="open drawer"
+              onClick={()=>{history.goBack()}}
+            >
+              <i style={{position:"fixed",right:"16px"}} className="material-icons">keyboard_backspace</i>
+            </IconButton>}
           </Toolbar>
         </AppBar>
         <Hidden mdUp>

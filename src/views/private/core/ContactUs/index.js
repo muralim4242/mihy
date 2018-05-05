@@ -1,21 +1,21 @@
 import React from "react";
-import { Grid } from "material-ui";
 
 import {
+  ContainerGrid,
+  Div,
   ProfileCard,
   Button,
   ItemGrid
 } from "components";
 
-// import avatar from "assets/img/faces/marc.jpg";
 import ceo from "assets/img/ceo.jpeg";
 import cf from "assets/img/cf.jpg";
 
 
 function ContactUs({ ...props }) {
   return (
-    <div>
-      <Grid container>
+    <Div>
+      <ContainerGrid>
         <ItemGrid xs={12} sm={12} md={6} style={{marginTop: "20px"}}>
           <ProfileCard
             avatar={ceo}
@@ -43,8 +43,8 @@ function ContactUs({ ...props }) {
             }
           />
         </ItemGrid>
-      </Grid>
-    </div>
+      </ContainerGrid>
+    </Div>
   );
 }
 

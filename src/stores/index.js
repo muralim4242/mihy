@@ -2,7 +2,7 @@ import { configure } from 'mobx';
 
 import SessionStore from './sessionStore';
 import UserStore from './userStore';
-import BloodStore from './bloodStore';
+import BloodStore from './donate/blood/bloodStore';
 import App from './app';
 
 configure({ enforceActions: true });

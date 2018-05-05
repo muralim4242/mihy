@@ -1,14 +1,12 @@
 import React from "react";
 import RequestBlood from "views/private/Donate/Blood/RequestBlood"
-// import isEmpty from "lodash/isEmpty";
 
-var add = {};
+// var add = {};
 
 class RequestBloodContainer extends React.Component {
   state={
     currLoc: { lat: 21.7679, lng: 78.8718 },
-    pickedLoc: {},
-    bloodList:[]
+    pickedLoc: {}
   }
 
   componentDidMount=()=>{
@@ -32,33 +30,32 @@ class RequestBloodContainer extends React.Component {
   };
 
 
-  onClickPick = () => {
-    this.convertToAddress(add);
-  };
-
-  convertToAddress = (add) => {
-    const { lat, lng } = add;
-    this.setState({
-      currLoc: {},
-    });
-    var geocoder = new window.google.maps.Geocoder();
-    geocoder.geocode({ location: { lat: lat, lng: lng } }, (results, status) => {
-      if (status === "OK") {
-        if (results[0]) {
-          //Results[0] gives the nearest address
-          // this.props.handleFieldChange(this.props.formKey, "address", results[0].formatted_address);
-        }
-      }
-    });
-  };
+  // onClickPick = () => {
+  //   this.convertToAddress(add);
+  // };
+  //
+  // convertToAddress = (add) => {
+  //   const { lat, lng } = add;
+  //   this.setState({
+  //     currLoc: {},
+  //   });
+  //   var geocoder = new window.google.maps.Geocoder();
+  //   geocoder.geocode({ location: { lat: lat, lng: lng } }, (results, status) => {
+  //     if (status === "OK") {
+  //       if (results[0]) {
+  //         //Results[0] gives the nearest address
+  //         // this.props.handleFieldChange(this.props.formKey, "address", results[0].formatted_address);
+  //       }
+  //     }
+  //   });
+  // };
 
 
   render()
   {
-    let {bloodList,currLoc}=this.state;
+    let {currLoc}=this.state;
     return(
       <RequestBlood
-        bloodList={bloodList}
         currLoc={currLoc}
         getMyLoc={this.getMyLocation}
       />

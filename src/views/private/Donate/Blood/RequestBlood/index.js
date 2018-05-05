@@ -1,14 +1,12 @@
 import React from "react";
-import { MyMapComponent, Div, RoundButton } from "components";
+import { MyMapComponent, Div, RoundButton,Button } from "components";
 import { compose } from "recompose";
 import { inject, observer } from "mobx-react";
 import BloodList from "./components/BloodList";
 import Modal from "material-ui/Modal";
 import Typography from "material-ui/Typography";
 import { withStyles } from "material-ui/styles";
-// import { CircularProgress } from 'material-ui/Progress';
 import { LinearProgress } from "material-ui/Progress";
-import Button from "material-ui/Button";
 import styles from "./css";
 
 const RequestBlood = ({ classes, currLoc, getMyLoc, bloodStore }) => {
@@ -77,7 +75,7 @@ const RequestBlood = ({ classes, currLoc, getMyLoc, bloodStore }) => {
           <Button
             variant="raised"
             size="small"
-            color="secondary"
+            color="danger"
             onClick={() => {
               bloodStore.toggleSendModal("close");
             }}

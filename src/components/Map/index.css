@@ -40,7 +40,7 @@
 
 .my-location {
   position: absolute !important;
-  bottom: 76px;
+  top: 0;
   right: 0;
 }
 

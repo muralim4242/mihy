@@ -1,18 +1,18 @@
 import React from "react";
 import {Div} from "components";
 import Apps from "views/common/Apps";
-// import * as routes from "constants/routes";
-import * as donateRoutes from "constants/donateRoutes";
-import * as bloodRoutes from "constants/bloodRoutes";
+
+import * as donateRoutes from "constants/routes/donateRoutes";
+import * as bloodRoutes from "constants/routes/bloodRoutes";
 
 const apps = [
-  // {
-  //   key: 1,
-  //   title: "My profile",
-  //   secondaryText: "Create your blood donate profile",
-  //   image: ``,
-  //   route:`${donateRoutes.BLOOD}${bloodRoutes.PROFILE}`
-  // },
+  {
+    key: 1,
+    title: "My profile",
+    secondaryText: "Create your blood donate profile",
+    image: ``,
+    route:`${donateRoutes.BLOOD}${bloodRoutes.PROFILE}`
+  },
   // {
   //   key: 1,
   //   title: "Blood requests",

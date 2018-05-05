@@ -1,7 +1,7 @@
 import React from "react";
-import { WhitePaper } from "components";
+import { WhitePaper,ContainerGrid } from "components";
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
-import { Grid,Typography } from "material-ui";
+import { Typography } from "material-ui";
 import {
   auth,
   googleAuthProviderId,
@@ -39,33 +39,13 @@ function Login({ ...props }) {
       <Typography variant="subheading" align="center">
         Get free pass
       </Typography>
-      <Grid container>
+      <ContainerGrid>
         <ItemGrid xs={12} sm={12} md={12}>
           <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={auth} />
         </ItemGrid>
-      </Grid>
+      </ContainerGrid>
     </WhitePaper>
   );
 }
 
 export default Login;
-
-// <div>
-//   <Grid container>
-//     <ItemGrid xs={12} sm={12} md={12}>
-//       <RegularCard
-//         cardTitle="MIHY"
-//         cardSubtitle="Get free pass"
-//         content={
-//           <div>
-//             <Grid container>
-//               <ItemGrid xs={12} sm={12} md={12}>
-//                   <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={auth}/>
-//               </ItemGrid>
-//             </Grid>
-//           </div>
-//         }
-//       />
-//     </ItemGrid>
-//   </Grid>
-// </div>

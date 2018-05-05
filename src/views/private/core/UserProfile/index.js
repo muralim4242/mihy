@@ -1,26 +1,28 @@
 import React from "react";
-import { Grid, InputLabel } from "material-ui";
+import {InputLabel} from "material-ui";
 
 import {
   RegularCard,
   Button,
   CustomInput,
-  ItemGrid
+  ItemGrid,
+  ContainerGrid,
+  Div
 } from "components";
 
 
 
 function UserProfile({ ...props }) {
   return (
-    <div>
-      <Grid container>
+    <Div>
+      <ContainerGrid>
         <ItemGrid xs={12} sm={12} md={8}>
           <RegularCard
             cardTitle="Edit Profile"
             cardSubtitle="Complete your profile"
             content={
-              <div>
-                <Grid container>
+              <Div>
+                <ContainerGrid>
                   <ItemGrid xs={12} sm={12} md={5}>
                     <CustomInput
                       labelText="Company (disabled)"
@@ -51,8 +53,8 @@ function UserProfile({ ...props }) {
                       }}
                     />
                   </ItemGrid>
-                </Grid>
-                <Grid container>
+                </ContainerGrid>
+                <ContainerGrid>
                   <ItemGrid xs={12} sm={12} md={6}>
                     <CustomInput
                       labelText="First Name"
@@ -71,8 +73,8 @@ function UserProfile({ ...props }) {
                       }}
                     />
                   </ItemGrid>
-                </Grid>
-                <Grid container>
+                </ContainerGrid>
+                <ContainerGrid>
                   <ItemGrid xs={12} sm={12} md={4}>
                     <CustomInput
                       labelText="City"
@@ -100,8 +102,8 @@ function UserProfile({ ...props }) {
                       }}
                     />
                   </ItemGrid>
-                </Grid>
-                <Grid container>
+                </ContainerGrid>
+                <ContainerGrid>
                   <ItemGrid xs={12} sm={12} md={12}>
                     <InputLabel style={{ color: "#AAAAAA" }}>
                       About me
@@ -118,14 +120,14 @@ function UserProfile({ ...props }) {
                       }}
                     />
                   </ItemGrid>
-                </Grid>
-              </div>
+                </ContainerGrid>
+              </Div>
             }
             footer={<Button color="primary">Update Profile</Button>}
           />
         </ItemGrid>
-      </Grid>
-    </div>
+      </ContainerGrid>
+    </Div>
   );
 }
 

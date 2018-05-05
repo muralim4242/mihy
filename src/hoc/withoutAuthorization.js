@@ -3,14 +3,14 @@ import { withRouter } from "react-router-dom";
 import { compose } from "recompose";
 import { inject, observer } from "mobx-react";
 import { auth } from "firebase-util";
-import { LANDING } from "constants/routes";
+import * as routes from "constants/routes/routes";
 
 const withoutAuthorization = Component => {
   class WithoutAuthorization extends React.Component {
     componentDidMount() {
       auth.onAuthStateChanged(authUser => {
         if (authUser) {
-          this.props.history.push(LANDING);
+          this.props.history.push(routes.LANDING);
         }
       });
     }

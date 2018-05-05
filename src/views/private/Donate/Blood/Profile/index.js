@@ -89,7 +89,7 @@ function Profile({ ...props }) {
                 </ContainerGrid>
               </Div>
             }
-            footer={<Button color="primary">Update Donor Profile</Button>}
+            footer={<Button color="primary" round>Update Donor Profile</Button>}
           />
         </ItemGrid>
       </ContainerGrid>
