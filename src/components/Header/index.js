@@ -5,6 +5,7 @@ import Drawer from 'material-ui/Drawer';
 import AppBar from 'material-ui/AppBar';
 import Toolbar from 'material-ui/Toolbar';
 import List from 'material-ui/List';
+import Badge from 'material-ui/Badge';
 import Typography from 'material-ui/Typography';
 import IconButton from 'material-ui/IconButton';
 import Hidden from 'material-ui/Hidden';
@@ -48,6 +49,9 @@ class Header extends React.Component {
             <Typography variant="title" color="inherit" noWrap>
               {appHeader}
             </Typography>
+            <Badge style={{position:"fixed",right:"56px"}} badgeContent={4} color="secondary">
+              <i className="material-icons">notifications</i>
+            </Badge>
             {appHeader!=="MIHY" && <IconButton
               color="inherit"
               aria-label="open drawer"
