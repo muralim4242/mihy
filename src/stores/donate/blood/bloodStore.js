@@ -1,7 +1,9 @@
 import { observable, action, decorate } from "mobx";
+import BloodGroups from "./bloodGroups";
 import filter from "lodash/filter";
 const CURRENT_LOCATION_MAP_PIN="M12 2C8.14 2 5 5.14 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.86-3.14-7-7-7zm0 2c1.1 0 2 .9 2 2 0 1.11-.9 2-2 2s-2-.89-2-2c0-1.1.9-2 2-2zm0 10c-1.67 0-3.14-.85-4-2.15.02-1.32 2.67-2.05 4-2.05s3.98.73 4 2.05c-.86 1.3-2.33 2.15-4 2.15z";
 const DONORS_LOCATION_ICON="M19 2H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h4l3 3 3-3h4c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-7 3.3c1.49 0 2.7 1.21 2.7 2.7 0 1.49-1.21 2.7-2.7 2.7-1.49 0-2.7-1.21-2.7-2.7 0-1.49 1.21-2.7 2.7-2.7zM18 16H6v-.9c0-2 4-3.1 6-3.1s6 1.1 6 3.1v.9z";
+let bloodGrps=new BloodGroups();
 
 class BloodStore {
   currentLocationIcon={
@@ -19,41 +21,7 @@ class BloodStore {
     strokeColor: '',
     strokeWeight: 0
   }
-
-  bloodGrps = [
-    {
-      displayName: "A+",
-      code: "aPositive"
-    },
-    {
-      displayName: "B+",
-      code: "bPositive"
-    },
-    {
-      displayName: "AB+",
-      code: "abPositive"
-    },
-    {
-      displayName: "O+",
-      code: "oPositive"
-    },
-    {
-      displayName: "A-",
-      code: "aNegative"
-    },
-    {
-      displayName: "B-",
-      code: "bNegative"
-    },
-    {
-      displayName: "AB-",
-      code: "abNegative"
-    },
-    {
-      displayName: "O-",
-      code: "oNegative"
-    }
-  ];
+  bloodGrps = bloodGrps.getBloodGroups();
   isMarkerShown = true;
   isEntityTypeShown = true;
   donorLocations = [

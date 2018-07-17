@@ -49,7 +49,7 @@ class Header extends React.Component {
             <Typography variant="title" color="inherit" noWrap>
               {appHeader}
             </Typography>
-            <Badge style={{position:"fixed",right:"56px"}} badgeContent={4} color="secondary">
+            <Badge style={{position:"fixed",right:"56px"}} badgeContent={4} color="primary">
               <i className="material-icons">notifications</i>
             </Badge>
             {appHeader!=="MIHY" && <IconButton

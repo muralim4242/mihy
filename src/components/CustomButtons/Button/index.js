@@ -6,6 +6,7 @@ import cx from "classnames";
 import buttonStyle from "variables/styles/buttonStyle";
 
 function RegularButton({ ...props }) {
+  debugger;
   const {
     classes,
     color,

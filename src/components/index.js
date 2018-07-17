@@ -16,6 +16,7 @@ import AppCard from "./Cards/AppCard";
 import Button from "./CustomButtons/Button";
 import IconButton from "./CustomButtons/IconButton";
 import RoundButton from "./CustomButtons/RoundButton";
+import RegularButton from "./CustomButtons/RegularButton";
 
 // ##############################
 // // // CustomInputs
@@ -118,6 +119,7 @@ export {
   Button,
   IconButton,
   RoundButton,
+  RegularButton,
   // CustomInputs
   CustomInput,
   SingleValuedDropdown,

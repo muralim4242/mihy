@@ -40,7 +40,7 @@ const card = {
   display: "inline-block",
   position: "relative",
   width: "100%",
-  margin: "25px 0",
+  // margin: "8px 0",
   boxShadow: "0 1px 4px 0 rgba(0, 0, 0, 0.14)",
   borderRadius: "3px",
   color: "rgba(0, 0, 0, 0.87)",
@@ -53,7 +53,7 @@ const defaultFont = {
   lineHeight: "1.5em"
 };
 
-const primaryColor = "#00BCD4";//"#9c27b0"
+const primaryColor = "#9c27b0";//"#9c27b0"
 const warningColor = "#ff9800";
 const dangerColor = "#f44336";
 const successColor = "#4caf50";

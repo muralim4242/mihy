@@ -1,9 +1,11 @@
 import React from "react";
 import { InputAdornment } from "material-ui/Input";
+import { compose } from "recompose";
+import { inject, observer } from "mobx-react";
 
 import {
   RegularCard,
-  Button,
+  RegularButton,
   CustomInput,
   ItemGrid,
   ContainerGrid,
@@ -11,14 +13,24 @@ import {
   SingleValuedDropdown
 } from "components";
 
-function Profile({ ...props }) {
+function Profile(props) {
+  let {donorProfile}=props;
+  let bloodGrps=[];
+  if (donorProfile.bloodGrps.length>0) {
+    bloodGrps=donorProfile.bloodGrps.map(bloodGrps=>{
+      return {
+        key:bloodGrps.code,
+        value:bloodGrps.displayName
+      }
+    })
+  }
   return (
     <Div>
       <ContainerGrid container>
         <ItemGrid xs={12} sm={12} md={8}>
           <RegularCard
-            cardTitle="Edit Donor Profile"
-            cardSubtitle="Complete your profile"
+            // cardTitle="Edit Donor Profile"
+            // cardSubtitle="Complete your profile"
             content={
               <Div>
                 <ContainerGrid container>
@@ -31,21 +43,9 @@ function Profile({ ...props }) {
                         required: true
                       }}
                       placeholder="Select blood group"
-                      value=""
-                      data={[
-                        {
-                          key: "A+",
-                          value: "A+"
-                        },
-                        {
-                          key: "B+",
-                          value: "A+"
-                        },
-                        {
-                          key: "C+",
-                          value: "C+"
-                        }
-                      ]}
+                      value={donorProfile.bloodGroup}
+                      data={bloodGrps}
+                      handleChange={(e)=>{donorProfile.setInput("bloodGroup",e.target.value)}}
                     />
                   </ItemGrid>
                 </ContainerGrid>
@@ -59,7 +59,8 @@ function Profile({ ...props }) {
                         endAdornment: (
                           <InputAdornment position="end">Kg</InputAdornment>
                         ),
-                        type: "number"
+                        type: "number",
+                        onChange:(e)=>{donorProfile.setInput("weight",e.target.value)}
                       }}
                       formControlProps={{
                         fullWidth: true,
@@ -78,7 +79,8 @@ function Profile({ ...props }) {
                         endAdornment: (
                           <InputAdornment position="end">Ft</InputAdornment>
                         ),
-                        type: "number"
+                        type: "number",
+                        onChange:(e)=>{donorProfile.setInput("height",e.target.value)}
                       }}
                       formControlProps={{
                         fullWidth: true,
@@ -89,7 +91,7 @@ function Profile({ ...props }) {
                 </ContainerGrid>
               </Div>
             }
-            footer={<Button color="primary" round>Update Donor Profile</Button>}
+            footer={<RegularButton color="primary">Update</RegularButton>}
           />
         </ItemGrid>
       </ContainerGrid>
@@ -97,4 +99,4 @@ function Profile({ ...props }) {
   );
 }
 
-export default Profile;
+export default compose(inject("donorProfile"),observer)(Profile);
